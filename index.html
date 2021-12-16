@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vaimo-test v2.0</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrapper">
+
+    <h1>Create New Customer Account</h1>
+
+    <form class="registration">
+
+        <h2>Personal information</h2>
+        <hr>
+
+        <div class="cont">
+            <label for="firstName"></label>
+            <input type="text" id="firstName" placeholder=" " name="firstName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters and special symbols like .,-">
+            <div class="placeholder">First Name <span class="red">*</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="lastName"></label>
+            <input type="text" id="lastName" placeholder=" " name="lastName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters and special symbols like .,-">
+            <div class="placeholder">Last Name <span class="red">*</span></div>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Sign Up for Newsletter</label>
+        </div>
+
+        <div class="cont">
+            <label for="email"></label>
+            <input type="email" id="email" placeholder=" " name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Must be a valid email">
+            <div class="placeholder">Email <span class="red">*</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="password"></label>
+            <input type="password" id="password" placeholder=" " name="password" pattern="^.{6,}$" maxlength="128" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <div class="placeholder">Password <span class="red">*</span></div>
+            <div class="passwordStrength">Password strength: <span id="strength">No Password</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="ConfirmPassword"></label>
+            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" maxlength="128" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <div class="placeholder">Confirm Password <span class="red">*</span></div>
+        </div>
+
+        <h2>Address information</h2>
+        <hr>
+
+        <div class="phone">
+            <div class="cont phoneCode">
+                <label for="countryCode"></label>
+                <select id="countryCode" required>
+                    <option value="" selected disabled>Your Country Code</option>
+                </select>
+                <div class="placeholder reqSelect">Country Code <span class="red">*</span></div>
+            </div>
+
+            <div class="phoneNumber">
+                <div class="cont">
+                    <label for="phoneNumber"></label>
+                    <input id="phoneNumber" type="tel" placeholder=" " minlength="5" maxlength="15" pattern="[0-9]{5,15}" required title="Must contain only numbers"/>
+                    <div class="placeholder reqSelect">Phone Number <span class="red">*</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont">
+            <label for="streetAddress"></label>
+            <input type="text" id="streetAddress" name="streetAddress" placeholder=" " required>
+            <div class="placeholder">Street Address <span class="red">*</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="countrySelect"></label>
+            <select id="countrySelect" required>
+                <option value="" selected disabled>Select your Country</option>
+                <option value="France" datatype="Qatar">France</option>
+                <option value="Ukraine" datatype="Ukraine">Ukraine</option>
+                <option value="England" datatype="England">England</option>
+            </select>
+            <div class="placeholder reqSelect">Country <span class="red">*</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="citySelect"></label>
+            <select id="citySelect" required>
+                <option value="" selected disabled>Select your Country First</option>
+            </select>
+            <div class="placeholder reqSelect">City <span class="red">*</span></div>
+        </div>
+
+        <div class="cont">
+            <label for="postalCode"></label>
+            <input type="text" id="postalCode" name="postalCode" placeholder=" " required>
+            <div class="placeholder">Zip/Postal code <span class="red">*</span></div>
+        </div>
+
+        <p class="requiredFields red">* Required Fields</p>
+
+        <button type="button" class="submitButton" disabled>Create an Account</button>
+    </form>
+
+    <div class="accountInformation">
+
+        <h3>Account Information</h3>
+        <hr>
+        <div class="contactInformation">
+            <div class="contacts">
+                <h4>Contact Information</h4>
+                <p class="accountName">Firstname Lastname</p>
+                <p class="accountEmail">test.test@gmail.com</p>
+            </div>
+            <div class="newsletter">
+                <h4>Newsletters</h4>
+                <p class="subscription">You aren't subscribed to our newsletter.</p>
+            </div>
+        </div>
+
+        <div class="addressBook">
+            <h3>Address Book</h3>
+            <hr>
+            <p class="street">Street</p>
+            <p class="postalCode">Doha, 00000</p>
+            <p class="country">Country</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
