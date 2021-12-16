@@ -21,13 +21,13 @@
 
         <div class="cont">
             <label for="firstName"></label>
-            <input type="text" id="firstName" placeholder=" " name="firstName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters and special symbols like .,-">
+            <input type="text" id="firstName" placeholder=" " name="firstName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters">
             <div class="placeholder">First Name <span class="red">*</span></div>
         </div>
 
         <div class="cont">
             <label for="lastName"></label>
-            <input type="text" id="lastName" placeholder=" " name="lastName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters and special symbols like .,-">
+            <input type="text" id="lastName" placeholder=" " name="lastName" required pattern="[A-Za-z]{1,32}" maxlength="32" title="Must contain only letters">
             <div class="placeholder">Last Name <span class="red">*</span></div>
         </div>
 
@@ -51,7 +51,7 @@
 
         <div class="cont">
             <label for="ConfirmPassword"></label>
-            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" maxlength="128" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder=" " pattern="^.{6,}$" maxlength="128" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             <div class="placeholder">Confirm Password <span class="red">*</span></div>
         </div>
 
@@ -63,6 +63,9 @@
                 <label for="countryCode"></label>
                 <select id="countryCode" required>
                     <option value="" selected disabled>Your Country Code</option>
+                    <option value="+33">+33</option>
+                    <option value="+44">+44</option>
+                    <option value="+380">+380</option>
                 </select>
                 <div class="placeholder reqSelect">Country Code <span class="red">*</span></div>
             </div>
@@ -103,7 +106,7 @@
 
         <div class="cont">
             <label for="postalCode"></label>
-            <input type="text" id="postalCode" name="postalCode" placeholder=" " required>
+            <input type="text" id="postalCode" name="postalCode" placeholder=" " pattern="^[0-9]{3,}" required>
             <div class="placeholder">Zip/Postal code <span class="red">*</span></div>
         </div>
 
