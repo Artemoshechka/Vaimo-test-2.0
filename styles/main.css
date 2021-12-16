@@ -169,11 +169,14 @@ hr {
 .accountInformation h4 {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .accountInformation p {
   font-size: 13px;
   margin-bottom: 10px;
+}
+.accountInformation hr {
+  margin-bottom: 30px;
 }
 
 .contactInformation {
@@ -184,4 +187,12 @@ hr {
   flex-grow: 1;
 }
 
-/*# sourceMappingURL=styles.css.map */
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block;
+}
+
+/*# sourceMappingURL=main.css.map */

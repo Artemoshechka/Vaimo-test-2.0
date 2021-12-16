@@ -1,3 +1,4 @@
+let form = document.querySelector('.registration');
 let firstName = document.querySelector('#firstName');
 let lastName = document.querySelector('#lastName');
 let newsLetter = document.querySelector('#newsletter');
@@ -11,20 +12,48 @@ let streetAddress = document.querySelector('#streetAddress');
 let countrySelect = document.querySelector('#countrySelect');
 let citySelect = document.querySelector('#citySelect');
 let postalCode = document.querySelector('#postalCode');
+let createAccountButton = document.querySelector('.submitButton');
+
+/*
+* It's better to create list of all elements that need to be validated, because otherwise there will be lots of repeated
+* code lines. Because input and select have different change event, we need to create 2 separated lists (one for inputs
+* and one for selectors)
+* */
+
+let listOfElementsInput = [firstName, lastName, email, password, confirmPassword, phoneNumber, streetAddress, postalCode];
+let listOfElementsChange = [countryCode, countrySelect, citySelect];
+
+let accountInformation = document.querySelector('.accountInformation');
+let accountName = document.querySelector('.accountName');
+let accountEmail = document.querySelector('.accountEmail');
+let subscription = document.querySelector('.subscription');
+let street = document.querySelector('.street');
+let infoPostalCode = document.querySelector('.postalCode');
+let country = document.querySelector('.country');
 
 let validationFunction = function () {
-    /*To be continued*/
+    let validation = firstName.checkValidity() && lastName.checkValidity() && email.checkValidity() &&
+        password.checkValidity && confirmPassword.checkValidity && password.value === confirmPassword.value &&
+        countryCode.checkValidity() && phoneNumber.checkValidity() && streetAddress.checkValidity() &&
+        countrySelect.checkValidity() && citySelect.checkValidity() && postalCode.checkValidity();
+    console.log(validation);
+    if (validation) {
+        createAccountButton.removeAttribute('disabled');
+    } else {
+        createAccountButton.setAttribute('disabled', 'disabled');
+    }
 }
 
-let strongPasswordRegEx = /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/;
 let listOfCities = {
     'England': ['London', 'Liverpool', 'Manchester', 'Brighton', 'Newcastle'],
     'Ukraine': ['Kyiv', 'Lviv', 'Vinnytsia', 'Dnipro', 'Zaporizzhya'],
     'France': ['Lyon', 'Paris', 'Marseille', 'Toulouse', 'Nice']
 }
 
-/*По хорошему конечно нужно сделать более серьезную валидацию пароля
-* через регулярные выражения.
+/*It would be better to improve the password validation using regular expressions*/
+
+/*
+let strongPasswordRegEx = /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/;
 */
 
 password.addEventListener('input', () => {
@@ -58,4 +87,25 @@ countrySelect.addEventListener('change', () => {
         option.innerHTML = city;
         citySelect.appendChild(option);
     })
+})
+
+listOfElementsInput.forEach((element) => {
+    element.addEventListener('input', validationFunction);
+})
+
+listOfElementsChange.forEach((element) => {
+    element.addEventListener('change', validationFunction);
+})
+
+createAccountButton.addEventListener('click', () => {
+    form.className = 'hidden';
+    accountInformation.className = 'shown';
+    accountName.innerHTML = `${firstName.value} ${lastName.value}`;
+    accountEmail.innerHTML = `${email.value}`;
+    street.innerHTML = `${streetAddress.value}`;
+    infoPostalCode.innerHTML = `${postalCode.value}`;
+    country.innerHTML = `${countrySelect.value}`;
+    if (newsLetter.checked) {
+        subscription.innerHTML = 'You are subscribed to our newsletter'
+    }
 })

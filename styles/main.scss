@@ -171,11 +171,14 @@ hr {
   h4 {
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
   p {
     font-size: 13px;
     margin-bottom: 10px;
+  }
+  hr {
+    margin-bottom: 30px;
   }
 }
 
@@ -187,3 +190,10 @@ hr {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block;
+}
