@@ -36,7 +36,6 @@ let validationFunction = function () {
         password.checkValidity && confirmPassword.checkValidity && password.value === confirmPassword.value &&
         countryCode.checkValidity() && phoneNumber.checkValidity() && streetAddress.checkValidity() &&
         countrySelect.checkValidity() && citySelect.checkValidity() && postalCode.checkValidity();
-    console.log(validation);
     if (validation) {
         createAccountButton.removeAttribute('disabled');
     } else {
@@ -50,7 +49,7 @@ let listOfCities = {
     'France': ['Lyon', 'Paris', 'Marseille', 'Toulouse', 'Nice']
 }
 
-/*It would be better to improve the password validation using regular expressions*/
+/*There is a room for password validation improvement*/
 
 /*
 let strongPasswordRegEx = /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/;
