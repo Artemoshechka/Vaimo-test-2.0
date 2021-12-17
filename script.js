@@ -17,7 +17,7 @@ let createAccountButton = document.querySelector('.submitButton');
 /*
 * It's better to create list of all elements that need to be validated, because otherwise there will be lots of repeated
 * code lines. Because input and select have different change event, we need to create 2 separated lists (one for inputs
-* and one for selectors)
+* and one for selects)
 * */
 
 let listOfElementsInput = [firstName, lastName, email, password, confirmPassword, phoneNumber, streetAddress, postalCode];
